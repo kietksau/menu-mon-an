@@ -14,13 +14,29 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <body>
 <!-- Start Content -->
 <div id="home" class="w3-content">
+<button class="counter-button increment" data-count="0">+</button>
+                <span class="counter">0</span>
+                <button class="counter-button decrement">-</button> 
+<script>
+const counterButtons = document.querySelectorAll(".counter-button");
+const counters = document.querySelectorAll(".counter");
 
+counterButtons.forEach((button, index) => {
+    button.addEventListener("click", (e) => {
+        const currentCount = parseInt(counters[index].textContent);
+
+        if (e.target.classList.contains("increment")) {
+            counters[index].textContent = currentCount + 1;
+        } else if (e.target.classList.contains("decrement") && currentCount > 0) {
+            counters[index].textContent = currentCount - 1;
+        }
+    });
+}); </script>
 <!-- Navbar (Sits on top) -->
 <div class="w3-top w3-bar w3-xlarge w3-black w3-opacity-min">
 <a href="#home" class="w3-bar-item w3-button">HOME</a>
 <a href="#menu" class="w3-bar-item w3-button">MENU</a>
-<a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-<a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
+
 </div>
   
 <!-- Header image -->
@@ -43,8 +59,8 @@ class="w3-display-container w3-grayscale-min">
 <a href="#pasta"><div class="w3-third w3-padding-large w3-hover-red">bữa trưa</div></a>
 <a href="#starters"><div class="w3-third w3-padding-large w3-hover-red">bữa tối</div></a>
 </div>
-<div id="pizza" class="w3-container w3-white w3-padding-32">
-<h1 id="phoga"><b>Phở gà</b> <span  class="w3-right w3-tag w3-dark-grey w3-round">35000VĐN</span></h1>
+<div id="pizza" class="w3-container w3-white w3-padding-32 ">
+<h1 id="phoga"><b>Phở gà</b> <span  class="w3-right w3-tag w3-dark-grey w3-round w3-hover-orange ">35.000VĐN</span></h1>
 
 <blockquote class="medium"></blockquote>
 <p class="w3-text-grey">1 con gà vừa ,
@@ -55,23 +71,23 @@ class="w3-display-container w3-grayscale-min">
     Hoa hồi, hạt mùi, gừng, thảo quả, quế, tiêu đen
 muối, đường, mắm, hạt nêm, tiêu</p>
 <hr>
-<h1><b>cháo trai(4 người)</b> <span class="w3-right w3-tag w3-dark-grey w3-round">25000VĐN</span></h1>
-<p class="w3-text-grey">Trai 3 kg,Gạo nếp 50 gr,Gạo tẻ 150 gr,
-  Mỡ heo 1 kg,Rau thì là 30 gr,Rau răm 30 gr,
+<h1><b>cháo trai</b> <span class="w3-right w3-tag w3-dark-grey w3-round w3-hover-orange">25.000VĐN</span></h1>
+<p class="w3-text-grey">Trai 500g,Gạo nếp 50 gr,Gạo tẻ 150 gr,
+  Rau thì là 30 gr,Rau răm 30 gr,
   Hành tím 100 gr,
-  Hành lá 5 nhánh,
-  Ngò rí 5 nhánh,
-  Ớt hiểm 3 trái,
+  Hành lá 1 nhánh,
+  Ngò rí 1 nhánh,
+  
   Chanh 1 trái,
   Gừng 10 gr(1 nhánh nhỏ),
-  Muối hạt 3 muỗng canh,
-  Nước mắm 1.5 muỗng canh,
+  Muối hạt 2 muỗng canh,
+  Nước mắm 1 muỗng canh,
   Dầu ăn 200 ml,
   Gia vị thông dụng 1 ít,
  (Muối/ bột ngọt/ tiêu xay),
-  Nước lọc 2.1 lít</p>
+  Nước lọc 500 ml</p>
 <hr>
-<h1><b>Bánh giò</b> <span class="w3-right w3-tag w3-dark-grey w3-round">20000VĐN</span></h1>
+<h1><b>Bánh giò</b> <span class="w3-right w3-tag w3-dark-grey w3-round w3-hover-orange">20.000VĐN</span></h1>
 <p class="w3-text-grey"> Thịt heo băm 200 gr,
   Bột gạo 320 gr,
   Bột năng 80 gr,
@@ -91,8 +107,8 @@ muối, đường, mắm, hạt nêm, tiêu</p>
 </div>
 <h1 id="pasta" class="w3-center w3-jumbo w3-padding-32">bữa trưa</h1>
 <div class="w3-container w3-white w3-padding-32">
-<h1><b>Gà hấp lá chanh, canh chua cá thác lác(phần 4-6người)</b> <span class="w3-tag w3-red w3-round">ngon,dễ làm</span>
-<span class="w3-right w3-tag w3-dark-grey w3-round">150000VĐN</span></h1>
+<h1><b>Gà hấp lá chanh, canh chua cá thác lác(phần 4-6người)</b> <span class="w3-tag w3-red w3-round w3-hover-orange">ngon,dễ làm</span>
+<span class="w3-right w3-tag w3-dark-grey w3-round w3-hover-orange">150.000VĐN</span></h1>
 <p class="w3-text-grey">gà nguyên con,Sả ,Hành tây xắt hạt lựu,
 Lá chanh thái sợi,
 Gừng,băm nhỏ,Ớt ,150g thịt cá thác lác,
@@ -107,7 +123,7 @@ Gừng,băm nhỏ,Ớt ,150g thịt cá thác lác,
 2 trái ớt,
 Gia vị: tiêu, muối, đường, dầu ăn, hạt nêm, nước mắm, bột ngọt</p>
 <hr>
-<h1><b>Ba chỉ kho tiêu</b> <span class="w3-right w3-tag w3-dark-grey w3-round">100.000VĐN</span></h1>
+<h1><b>Ba chỉ kho tiêu</b> <span class="w3-right w3-tag w3-dark-grey w3-round w3-hover-orange">100.000VĐN</span></h1>
 <p class="w3-text-grey"> Thịt ba chỉ 400 gr,
   Ớt 3 trái,
   Hành tím băm 1 củ,
@@ -117,7 +133,7 @@ Gia vị: tiêu, muối, đường, dầu ăn, hạt nêm, nước mắm, bột 
   Gia vị thông dụng 1 ít
  (muối/ đường/ bột ngọt/ hạt nêm/ tiêu)</p>
 <hr>
-<h1><b>Cá lóc kho tiêu</b> <span class="w3-right w3-tag w3-dark-grey w3-round">60000VĐN</span></h1>
+<h1><b>Cá lóc kho tiêu</b> <span class="w3-right w3-tag w3-dark-grey w3-round w3-hover-orange">60.000VĐN</span></h1>
 <p class="w3-text-grey">800 gr cá lóc đồng.
   1 quả dừa tươi lấy nước.
   3 - 4 hành tím.
@@ -129,7 +145,7 @@ Gia vị: tiêu, muối, đường, dầu ăn, hạt nêm, nước mắm, bột 
 <h1 id="starters" class="w3-center w3-jumbo w3-padding-32">BỮA TỐI</h1>
 <div class="w3-container w3-white w3-padding-32">
 <h1><b>Sườn kho trứng cút, đậu đũa xào tỏi</b> <span class="w3-tag w3-grey w3-round"></span>
-<span class="w3-right w3-tag w3-dark-grey w3-round">50000VĐN</span></h1>
+<span class="w3-right w3-tag w3-dark-grey w3-round w3-hover-orange">50.000VĐN</span></h1>
 <p class="w3-text-grey"> Sườn non 300 gr,
   Trứng cút 10 quả,
   Hành tím băm 2 củ,
@@ -142,7 +158,7 @@ Gia vị: tiêu, muối, đường, dầu ăn, hạt nêm, nước mắm, bột 
  (muối/ bột ngọt/ tiêu/ đường/ hạt nêm),
  500g đậu, 5g tỏi băm,2g đường trắng, 15ml mỡ lợn, lượng muối thích hợp</p>
 <hr>
-<h1><b>Đậu hũ hấp trứng thịt, rau củ xào</b> <span class="w3-right w3-tag w3-dark-grey w3-round">VĐN</span></h1>
+<h1><b>Đậu hũ hấp trứng thịt, rau củ xào</b> <span class="w3-right w3-tag w3-dark-grey w3-round w3-hover-orange">60.000VĐN</span></h1>
 <p class="w3-text-grey">2 miếng đậu hũ non.,
   300g thịt xay.,
   2 quả trứng gà,
@@ -152,24 +168,12 @@ Gia vị: tiêu, muối, đường, dầu ăn, hạt nêm, nước mắm, bột 
   Dầu mè,
   Nước màu.
   Ngô Non Bao Tử
-100
- 
-g
-Thịt Heo Xay
-50
- 
-g
-Bông Cải Xanh/Trắng
-100
- 
-g
-Nấm Bào Ngư
-250 g
+100g Thịt Heo Xay 50 g Bông Cải Xanh/Trắng 100g Nấm Bào Ngư 250 g
 Cà Rốt 1 củ Đậu Bi (Đậu Hà Lan) 100 g Hành Lá 10 g Muối 2 muỗng cà phê Tiêu Xay 1 muỗng cà phê
 Dầu Ăn 2 muỗng canh Hạt nêm MAGGI nấm hương 1 muỗng cà phê Dầu hào MAGGI 2 muỗng canh
 </p>
 <hr>
-<h1><b>Cá thu Nhật kho cà, canh chua cá cam</b> <span class="w3-right w3-tag w3-dark-grey w3-round">VĐN</span></h1>
+<h1><b>Cá thu Nhật kho cà, canh chua cá cam</b> <span class="w3-right w3-tag w3-dark-grey w3-round w3-hover-orange">50.000VĐN</span></h1>
 <p class="w3-text-grey">2 quả cà chua chín.
   2 con cá thu Nhật.
   2 trái ớt hiểm.
